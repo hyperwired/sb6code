@@ -302,23 +302,23 @@ protected:
 };
 
 #if defined _WIN32
-#define DECLARE_MAIN(a)                             \
+#define DECLARE_MAIN(AppType)                       \
 sb6::application *app = 0;                          \
 int CALLBACK WinMain(HINSTANCE hInstance,           \
                      HINSTANCE hPrevInstance,       \
                      LPSTR lpCmdLine,               \
                      int nCmdShow)                  \
 {                                                   \
-    a *app = new a;                                 \
+    AppType *app = new AppType;                     \
     app->run(app);                                  \
     delete app;                                     \
     return 0;                                       \
 }
 #elif defined _LINUX
-#define DECLARE_MAIN(a)                             \
+#define DECLARE_MAIN(AppType)                       \
 int main(int argc, const char ** argv)              \
 {                                                   \
-    a *app = new a;                                 \
+    AppType *app = new AppType;                     \
     app->run(app);                                  \
     delete app;                                     \
     return 0;                                       \
